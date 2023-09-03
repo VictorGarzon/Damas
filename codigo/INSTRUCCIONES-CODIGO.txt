@@ -1,0 +1,2 @@
+En la carpeta entregada se encontrarán el damas.sql que es para la creación de la base de datos 
+y dentro del proyecto se encuentra el código de la página que se debe abrir el index.php.
