@@ -1,3 +1,2 @@
 # Damas
-Proyecto del grado superior de ASIR
-Hecho el curso 2022-2023
+Proyecto del grado superior de ASIR hecho el curso 2022-2023
