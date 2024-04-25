@@ -609,7 +609,7 @@ window.addEventListener("DOMContentLoaded",function (e){
         "    <section id=\"tade\">\n" +
         "        <div id=\"turn\">\n" +
         "            TURNO DE: <p>NEGRAS</p>\n" +
-        "            <button id=\"soplar\" >Soplar</button>\n" +
+        "            <button id=\"soplar\" >Soplar</button>  &nbsp; <button onclick=\"location.reload()\">Reiniciar</button>\n" +
         "        </div>\n" +
         "        <div id=\"movi\">\n" +
         "        </div>\n" +
