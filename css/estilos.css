@@ -121,7 +121,7 @@ section#tablero{
     transform-style: preserve-3d;
     transform: perspective(2000px) rotateX(35deg);
     transition: transform 0.5s ;
-    transition-delay: 1s;
+
 }
 /*
 cassillas
@@ -184,7 +184,7 @@ fichas
 
 .fichan::after,.fichan::before,.fichaw::after,.fichaw::before{
     transition: transform 0.5s ;
-    transition-delay: 1s;
+
 }
 
 
