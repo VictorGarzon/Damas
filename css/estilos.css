@@ -1,0 +1,525 @@
+*{
+    font-family: sans-serif;
+}
+header{
+/*
+    background-image: url("../img/fondo6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+ */
+    background-color: #fafaa7;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+body > button{
+    position: absolute;
+    z-index: 1;
+    left: 5%;
+    top: 5%;
+    width: 5%;
+    height: 5%;
+}
+::-webkit-scrollbar{
+    background-color: rgba(0, 0, 0, 0.42);
+    width: 1em;
+}
+::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 10px;
+}
+/*
+laterales
+ */
+aside{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    height: 100%;
+    width: 10%;
+    color: #00ff00;
+    font-size: 1vw;
+}
+ aside >div, li:hover{
+
+}
+h1,h2{
+    display: inline-block;
+}
+#iz{
+    left: 0;
+}
+#iz img{
+    width: 8em;
+    height: 7em;
+    margin-left: 5%;
+}
+#de{
+    right: 0;
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+    margin-top: 3%;
+}
+li h3, li h4{
+    display: inline-block;
+}
+li{
+    padding-left: 10%;
+}
+#de li div{
+    overflow: auto;
+    padding-left: 10%;
+    height: 20em;
+}
+#de li div::-webkit-scrollbar-thumb{
+    border: solid white 1px;
+}
+#de #amigos p{
+    margin-top: 2%;
+    border: red solid 1px;
+}
+#de li div p:hover{
+
+}
+/*
+contenedor
+ */
+article{
+    top: -5%;
+    left: 5%;
+    width: 80%;
+    bottom: 0;
+    position: fixed;
+}
+#centro h1{
+    position: absolute;
+    display: block;
+    left: 35%;
+    top: 3vh;
+    font-size: max(2vw,1em);
+    font-size: 2em;
+}
+/*
+tablero
+ */
+
+
+section#tablero{
+    display: inline-block ;
+    position: relative;
+    margin-left: 5%;
+    height: 50vw;
+    width: 50vw;
+    transform-style: preserve-3d;
+    transform: perspective(2000px) rotateX(35deg);
+    transition: transform 0.5s ;
+
+}
+/*
+cassillas
+ */
+section#tablero div{
+    height: 6.25vw;
+    width: 6.25vw;
+    display: inline-block ;
+    margin-top: -5px;
+}
+.negro{
+    background-color: #7E5835;
+}
+.blanco{
+    background-color: #C3B091;
+}
+/*
+fichas
+ */
+.fichan::after,.fichan::before,.fichaw::after,.fichaw::before,.posibilidad::after,.posibilidad::before,.elegir::after,.elegir::before{
+    content: "";
+    height: 6.25vw;
+    width: 6.25vw;
+    position: absolute;
+    border-radius: 50%;
+
+}
+
+
+.fichan::after,.fichan::before{
+    background-color: #000000;
+}
+.fichaw::after,.fichaw::before{
+    background-color: #ffffff;
+}
+.posibilidad::after,.posibilidad::before{
+    background-color: #5e5eff;
+}
+.elegir::after,.elegir::before{
+    background-color: red;
+}
+
+.fichan::after,.fichaw::after,.posibilidad::after,.elegir::after{
+    transform: translatey(-0.8vw) ;
+}
+
+.fichan::after{
+    background: radial-gradient(closest-side,#000000 50% ,#ffffff 51%,#000000 58%, #000000 75%, #ffffff 76%,#000000 83%)
+}
+.fichaw::after{
+    background: radial-gradient(closest-side,#ffffff 50% ,#000000 51%,#ffffff 58%, #ffffff 75%, #000000 76%,#ffffff 83%)
+}
+
+.sele.fichan::after{
+    background: radial-gradient(closest-side,#000000 50% ,#ffffff 51%,blue 58%, blue 75%, #ffffff 76%,#000000 83%)
+}
+.sele.fichaw::after{
+    background: radial-gradient(closest-side,#ffffff 50% ,#000000 51%,blue 58%, blue 75%, #000000 76%,#ffffff 83%)
+}
+
+.fichan::after,.fichan::before,.fichaw::after,.fichaw::before{
+    transition: transform 0.5s ;
+
+}
+
+
+/*
+dama
+ */
+.fichan.corona::after,.fichaw.corona::after{
+    transform: translatey(-1.6vw) ;
+
+}
+.fichan.corona::after{
+    background: radial-gradient(closest-side, #d39e45 51% ,#000000 50% ,#ffffff 51%,#000000 58%, #000000 75%, #ffffff 76%,#000000 83%);
+}
+.fichaw.corona::after{
+    background: radial-gradient(closest-side,#d39e45 51%,#ffffff 50% ,#000000 51%,#ffffff 58%, #ffffff 75%, #000000 76%,#ffffff 83%);
+}
+.fichan.corona::before,.fichaw.corona::before{
+    border-radius: 30% 30% 50% 50%;
+
+}
+
+
+.sele.fichan.corona::after{
+    background: radial-gradient(closest-side, #d39e45 51% ,#000000 50% ,#ffffff 51%,blue 58%, blue 75%, #ffffff 76%,#000000 83%);
+}
+.sele.fichaw.corona::after{
+    background: radial-gradient(closest-side,#d39e45 51%,#ffffff 50% ,#000000 51%,blue 58%, blue 75%, #000000 76%,#ffffff 83%);
+}
+/*
+girar
+ */
+section#tablero.girar{
+    transform: rotate(180deg) perspective(2000px) rotateX(-35deg) ;
+
+}
+.girar .fichan::after,.girar .fichaw::after,.girar .posibilidad::after, .girar .elegir::after{
+    transform: translatey(0.8vw) ;
+
+}
+
+.girar .fichan.corona::after ,.girar .fichaw.corona::after {
+    transform: translatey(1.6vw) ;
+}
+.girar .fichan.corona::before,.girar .fichaw.corona::before{
+    border-radius: 50% 50% 30% 30%;
+}
+
+/*
+movimientos y chat
+ */
+section#tade{
+    width: 20vw;
+    height: 40vw;
+    margin-left: 7%;
+    margin-bottom: 5%;
+    background-color: #333333;
+    position: relative;
+    display: inline-block;
+}
+#turn{
+    position: absolute;
+    text-align: center;
+    font-size: 2vw;
+    top: 2%;
+    width: 100%;
+    color: white;
+}
+#turn p{
+    color: black;
+    margin: 0;
+    margin-left: 5%;
+    width: 90%;
+    background-color: white;
+}
+#movi{
+    height: 40%;
+    width: 90%;
+    top: 20%;
+    bottom: 0;
+    left: 5%;
+    position: absolute;
+    overflow: auto;
+}
+#movi::-webkit-scrollbar-thumb{
+    border: solid white 1px;
+}
+#movi p{
+    background-color: #838383;
+    border: black 5px solid;
+}
+#chat{
+    bottom: 2%;
+    width: 90%;
+    height: 35%;
+    position: absolute;
+    background-color: white;
+    left: 5%;
+}
+
+#chat >div{
+    overflow: auto;
+    height: 85%;
+    width: 100%;
+}
+
+#chat >div> div{
+    margin-top: 2%;
+    margin-left: 1%;
+    border: 1px solid black;
+    border-right: none;
+}
+
+#chat> div >div> p{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 3%;
+    padding-left: 2%;
+    border-top: 1px solid black;
+}
+#chat form{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+#chat form input {
+    width: 85%;
+}
+#chat form button {
+    width: 10%;
+}
+a{
+    text-decoration: none;
+    color: #00ff00 ;
+    text-align: right;
+    position: absolute;
+    top: 1%;
+    right: 3%;
+}
+
+#iniciar,#registro,#buscar, #mensajes,#jugar,#pargu,#verpar {
+    background-color: rgba(79, 79, 79, 0.92);
+    width: 50%;
+    height: 70%;
+    left: 25%;
+    top: 15%;
+    position: fixed;
+    color: #00ff00 ;
+    text-align: center;
+    font-size: 2em;
+    display: none;
+}
+#iniciar::before, #registro::before,#buscar::before,#mensajes::before,#jugar::before,#pargu::before,#verpar::before{
+    content: '';
+    background-color: rgba(0, 0, 0, 0.58);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: -1;
+}
+#iniciar form, #registro form,#buscar form{
+    width: 100%;
+    height: 100%;
+}
+#iniciar input, #registro input,#buscar input,#mensajes input{
+    width: 50%;
+    font-size: 1em;
+    border-radius: 5px;
+}
+#iniciar button, #registro button, #buscar button,#mensajes button,#jugar button{
+    width: 25%;
+    font-size: 1em;
+}
+#jugar div{
+
+}
+#can{
+    display: none;
+}
+#iniciar h1 , #registro h1,#buscar h1 {
+    margin-top: 0;
+}
+
+img{
+    width: 3vw;
+    height: 3vw;
+}
+
+.soli,.espera {
+    border: white 1px solid;
+    border-radius: 10px;
+    margin-left: 10%;
+}
+#mensajes div,#pargu > div,#verpar > dir {
+    width: 100%;
+    height: 100%;
+}
+#mensajes div div,#pargu > div > div,#verpar > div > div{
+    color: black;
+    font-size: 1em;
+    background-color: white;
+    text-align: left ;
+    margin-left: 10%;
+    padding-left: 2%;
+    width: 75%;
+    height: 75%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+#pargu > div > div,#verpar > div > div{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#pargu div div div p,#verpar div div div p{
+    display: inline-block;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#pargu div div div p:first-child,#verpar div div div p:first-child{
+    text-align: left;
+    border: black solid 1px;
+    border-radius: 10px;
+}
+#verpar > div{
+    height: 100%;
+}
+#mensajes div div p span{
+    border-radius: 10px;
+    padding: 0.3em;
+}
+#mensajes div div .enviado{
+    text-align: right;
+    margin-right: 5%;
+}
+#mensajes div div .enviado span{
+    background-color: #8df5ff;
+}
+#mensajes div div .recibido span{
+    background-color: #8dff8d;
+}
+#mensajes div div .enviado::after{
+    content: ">";
+}
+#mensajes div div .recibido::before{
+    content: "<";
+}
+#mensajes input{
+    width: 80%;
+}
+#mensajes button{
+    width: 5%;
+}
+#alerta{
+    position: fixed;
+    display: none;
+    background-color: rgba(79, 79, 79, 0.92);
+    color: #00ff00 ;
+    font-size: 2em;
+    padding: 2em;
+    top: 10%;
+    left: 35%;
+}
+
+@media (max-width: 950px) {
+ aside{
+     font-size: 2vw;
+ }
+ article{
+     width: 90%;
+    right: 0;
+     overflow: auto;
+ }
+ section#tablero{
+     height: 75vw;
+     width: 75vw;
+     margin-left: 7%;
+     top: 4%;
+ }
+ section#tablero div,.fichan::after,.fichan::before,.posibilidad::after,.posibilidad::before,.fichaw::after,.fichaw::before{
+     height: 9.375vw;
+     width: 9.375vw;
+ }
+
+    section#tade{
+        width: 80vw;
+        height: 55vh;
+        margin-top: 5%;
+    }
+    #turn{
+        font-size: 4vw;
+        width: 100%;
+        left: 0;
+    }
+    #turn p{
+        display: inline-block;
+        width: 90%;
+    }
+    #movi{
+        top: 35%;
+        height: 30%;
+    }
+    li h4,h2{
+
+        display: none;
+    }
+    #iz li h3{
+        margin-top: 0;
+    }
+    #de{
+        top: 60%;
+        left: 0;
+        background-color:transparent;
+    }
+    #iz img{
+        width: 6em;
+        height: 5em;
+        margin-left: -6%;
+    }
+    a{
+        right: auto;
+        left: 0;
+    }
+    #mensajes{
+        width: 100%;
+        left: 0;
+    }
+}
+
+#movi .rojo{
+    border-color: red;
+}
