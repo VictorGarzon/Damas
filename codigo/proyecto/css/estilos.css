@@ -16,6 +16,14 @@ header{
     height: 100%;
     position: fixed;
 }
+body > button{
+    position: absolute;
+    z-index: 1;
+    left: 5%;
+    top: 5%;
+    width: 5%;
+    height: 5%;
+}
 ::-webkit-scrollbar{
     background-color: rgba(0, 0, 0, 0.42);
     width: 1em;
@@ -86,7 +94,7 @@ contenedor
  */
 article{
     top: -5%;
-    left: 10%;
+    left: 5%;
     width: 80%;
     bottom: 0;
     position: fixed;
@@ -97,6 +105,7 @@ article{
     left: 35%;
     top: 3vh;
     font-size: max(2vw,1em);
+    font-size: 2em;
 }
 /*
 tablero
@@ -112,6 +121,7 @@ section#tablero{
     transform-style: preserve-3d;
     transform: perspective(2000px) rotateX(35deg);
     transition: transform 0.5s ;
+
 }
 /*
 cassillas
@@ -140,6 +150,7 @@ fichas
 
 }
 
+
 .fichan::after,.fichan::before{
     background-color: #000000;
 }
@@ -163,6 +174,20 @@ fichas
 .fichaw::after{
     background: radial-gradient(closest-side,#ffffff 50% ,#000000 51%,#ffffff 58%, #ffffff 75%, #000000 76%,#ffffff 83%)
 }
+
+.sele.fichan::after{
+    background: radial-gradient(closest-side,#000000 50% ,#ffffff 51%,blue 58%, blue 75%, #ffffff 76%,#000000 83%)
+}
+.sele.fichaw::after{
+    background: radial-gradient(closest-side,#ffffff 50% ,#000000 51%,blue 58%, blue 75%, #000000 76%,#ffffff 83%)
+}
+
+.fichan::after,.fichan::before,.fichaw::after,.fichaw::before{
+    transition: transform 0.5s ;
+
+}
+
+
 /*
 dama
  */
@@ -180,11 +205,20 @@ dama
     border-radius: 30% 30% 50% 50%;
 
 }
+
+
+.sele.fichan.corona::after{
+    background: radial-gradient(closest-side, #d39e45 51% ,#000000 50% ,#ffffff 51%,blue 58%, blue 75%, #ffffff 76%,#000000 83%);
+}
+.sele.fichaw.corona::after{
+    background: radial-gradient(closest-side,#d39e45 51%,#ffffff 50% ,#000000 51%,blue 58%, blue 75%, #000000 76%,#ffffff 83%);
+}
 /*
 girar
  */
 section#tablero.girar{
     transform: rotate(180deg) perspective(2000px) rotateX(-35deg) ;
+
 }
 .girar .fichan::after,.girar .fichaw::after,.girar .posibilidad::after, .girar .elegir::after{
     transform: translatey(0.8vw) ;
@@ -204,7 +238,7 @@ movimientos y chat
 section#tade{
     width: 20vw;
     height: 40vw;
-    margin-left: 4%;
+    margin-left: 7%;
     margin-bottom: 5%;
     background-color: #333333;
     position: relative;
