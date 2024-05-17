@@ -201,7 +201,7 @@ window.addEventListener("DOMContentLoaded",function (e){
 
                             if (ronda == 1) {
                                 inicio = fin;
-
+                                inicio.classList.add('sele')
                                 escanear(inicio, 0)
                             }
 
@@ -255,8 +255,9 @@ window.addEventListener("DOMContentLoaded",function (e){
                                     nft = "fichaw";
                                     if (document.getElementsByClassName(ft).length == 0) {
                                         setTimeout(function () {
-                                            alert('blanco gana')
-                                            location.reload();
+                                            document.getElementById("alerta").style.display="block";
+                                            document.getElementById("alerta").textContent='blanco gana';
+                                            
                                         }, 100);
                                     }
                                     document.querySelector("#turn p").innerHTML = "NEGRAS";
@@ -278,8 +279,8 @@ window.addEventListener("DOMContentLoaded",function (e){
                                     if (document.getElementsByClassName(ft).length == 0) {
                                         if (document.getElementsByClassName(ft).length == 0) {
                                             setTimeout(function () {
-                                                alert('negro gana')
-                                                location.reload();
+                                                document.getElementById("alerta").style.display="block";
+                                                document.getElementById("alerta").textContent='negro gana';
                                             }, 100);
                                         }
                                     }
@@ -317,12 +318,15 @@ window.addEventListener("DOMContentLoaded",function (e){
                                         tablero.push(0)
                                     }
                                 }
-                                soplar();
+                                if (document.getElementsByClassName(ft).length != 0) {
+                                    soplar();
+                                }
                             }
 
                         }
                         if (e.target.classList.contains(ft) && activo == ft /* e.target.classList.contains("activo")*/) {
                             inicio = e.target
+                            inicio.classList.add('sele')
                             escanear(inicio, 0)
                         }
 
@@ -360,6 +364,10 @@ window.addEventListener("DOMContentLoaded",function (e){
             function eliminarposcam() {
                 while (posibilidades.length) {
                     posibilidades[0].classList.remove("posibilidad");
+                }
+
+                while (document.getElementsByClassName("sele").length) {
+                    document.getElementsByClassName("sele")[0].classList.remove("sele");
                 }
 
                 while (caminos.length) {
@@ -478,10 +486,11 @@ window.addEventListener("DOMContentLoaded",function (e){
                         }
                     }
                 }
-                if (comidas.length == 0) {
+                if (comidas.length == 0 ) {
                     setTimeout(function () {
-                        alert('tablas')
-                        location.reload();
+                        document.getElementById("alerta").style.display="block";
+                        document.getElementById("alerta").textContent='tablas';
+                        
                     }, 100);
                 } else {
                     mayor = comidas[0].length;
@@ -591,7 +600,8 @@ window.addEventListener("DOMContentLoaded",function (e){
         childList: true,
     });
 
-    document.getElementById('centro').innerHTML="<h1>Solitario</h1><section id=\"tablero\">\n" +
+
+    document.getElementById('centro').innerHTML="<h1> Solitario</h1><section id=\"tablero\">\n" +
         "                <div id=\"81\" class=\"blanco\" ></div><div id=\"82\" class=\"negro fichaw\"></div><div id=\"83\" class=\"blanco\"></div><div id=\"84\" class=\"negro fichaw\"></div><div id=\"85\" class=\"blanco\"></div><div id=\"86\" class=\"negro fichaw\"></div><div id=\"87\" class=\"blanco\"></div><div id=\"88\" class=\"negro fichaw\"></div>\n" +
         "                <div id=\"71\" class=\"negro fichaw\"></div><div id=\"72\" class=\"blanco\"></div><div id=\"73\" class=\"negro fichaw\"></div><div id=\"74\" class=\"blanco\"></div><div id=\"75\" class=\"negro fichaw\"></div><div id=\"76\" class=\"blanco\"></div><div id=\"77\" class=\"negro fichaw\"></div><div id=\"78\" class=\"blanco\"></div>\n" +
         "                <div id=\"61\" class=\"blanco\"></div><div id=\"62\" class=\"negro fichaw\"></div><div id=\"63\" class=\"blanco\"></div><div id=\"64\" class=\"negro fichaw\"></div><div id=\"65\" class=\"blanco\"></div><div id=\"66\" class=\"negro fichaw\"></div><div id=\"67\" class=\"blanco\"></div><div id=\"68\" class=\"negro fichaw\"></div>\n" +
@@ -604,7 +614,7 @@ window.addEventListener("DOMContentLoaded",function (e){
         "    <section id=\"tade\">\n" +
         "        <div id=\"turn\">\n" +
         "            TURNO DE: <p>NEGRAS</p>\n" +
-        "            <button id=\"soplar\" >Soplar</button>\n" +
+        "            <button id=\"soplar\" >Soplar</button>  &nbsp; <button onclick=\"location.reload()\">Reiniciar</button> \n" +
         "        </div>\n" +
         "        <div id=\"movi\">\n" +
         "        </div>\n" +
