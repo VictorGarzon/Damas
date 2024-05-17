@@ -121,6 +121,7 @@ section#tablero{
     transform-style: preserve-3d;
     transform: perspective(2000px) rotateX(35deg);
     transition: transform 0.5s ;
+    transition-delay: 1s;
 }
 /*
 cassillas
@@ -149,6 +150,7 @@ fichas
 
 }
 
+
 .fichan::after,.fichan::before{
     background-color: #000000;
 }
@@ -172,6 +174,20 @@ fichas
 .fichaw::after{
     background: radial-gradient(closest-side,#ffffff 50% ,#000000 51%,#ffffff 58%, #ffffff 75%, #000000 76%,#ffffff 83%)
 }
+
+.sele.fichan::after{
+    background: radial-gradient(closest-side,#000000 50% ,#ffffff 51%,blue 58%, blue 75%, #ffffff 76%,#000000 83%)
+}
+.sele.fichaw::after{
+    background: radial-gradient(closest-side,#ffffff 50% ,#000000 51%,blue 58%, blue 75%, #000000 76%,#ffffff 83%)
+}
+
+.fichan::after,.fichan::before,.fichaw::after,.fichaw::before{
+    transition: transform 0.5s ;
+    transition-delay: 1s;
+}
+
+
 /*
 dama
  */
@@ -189,11 +205,20 @@ dama
     border-radius: 30% 30% 50% 50%;
 
 }
+
+
+.sele.fichan.corona::after{
+    background: radial-gradient(closest-side, #d39e45 51% ,#000000 50% ,#ffffff 51%,blue 58%, blue 75%, #ffffff 76%,#000000 83%);
+}
+.sele.fichaw.corona::after{
+    background: radial-gradient(closest-side,#d39e45 51%,#ffffff 50% ,#000000 51%,blue 58%, blue 75%, #000000 76%,#ffffff 83%);
+}
 /*
 girar
  */
 section#tablero.girar{
     transform: rotate(180deg) perspective(2000px) rotateX(-35deg) ;
+
 }
 .girar .fichan::after,.girar .fichaw::after,.girar .posibilidad::after, .girar .elegir::after{
     transform: translatey(0.8vw) ;

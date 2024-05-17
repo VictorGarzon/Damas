@@ -201,7 +201,7 @@ window.addEventListener("DOMContentLoaded",function (e){
 
                             if (ronda == 1) {
                                 inicio = fin;
-
+                                inicio.classList.add('sele')
                                 escanear(inicio, 0)
                             }
 
@@ -326,6 +326,7 @@ window.addEventListener("DOMContentLoaded",function (e){
                         }
                         if (e.target.classList.contains(ft) && activo == ft /* e.target.classList.contains("activo")*/) {
                             inicio = e.target
+                            inicio.classList.add('sele')
                             escanear(inicio, 0)
                         }
 
@@ -363,6 +364,10 @@ window.addEventListener("DOMContentLoaded",function (e){
             function eliminarposcam() {
                 while (posibilidades.length) {
                     posibilidades[0].classList.remove("posibilidad");
+                }
+
+                while (document.getElementsByClassName("sele").length) {
+                    document.getElementsByClassName("sele")[0].classList.remove("sele");
                 }
 
                 while (caminos.length) {
@@ -609,7 +614,7 @@ window.addEventListener("DOMContentLoaded",function (e){
         "    <section id=\"tade\">\n" +
         "        <div id=\"turn\">\n" +
         "            TURNO DE: <p>NEGRAS</p>\n" +
-        "            <button id=\"soplar\" >Soplar</button>  &nbsp; <button onclick=\"location.reload()\">Reiniciar</button>\n" +
+        "            <button id=\"soplar\" >Soplar</button>  &nbsp; <button onclick=\"location.reload()\">Reiniciar</button> \n" +
         "        </div>\n" +
         "        <div id=\"movi\">\n" +
         "        </div>\n" +
