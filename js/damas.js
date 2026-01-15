@@ -601,7 +601,7 @@ window.addEventListener("DOMContentLoaded",function (e){
     });
 
 
-    document.getElementById('centro').innerHTML="<h1> Solitario</h1><section id=\"tablero\">\n" +
+    document.getElementById('centro').innerHTML="<section id=\"tablero\">\n" +
         "                <div id=\"81\" class=\"blanco\" ></div><div id=\"82\" class=\"negro fichaw\"></div><div id=\"83\" class=\"blanco\"></div><div id=\"84\" class=\"negro fichaw\"></div><div id=\"85\" class=\"blanco\"></div><div id=\"86\" class=\"negro fichaw\"></div><div id=\"87\" class=\"blanco\"></div><div id=\"88\" class=\"negro fichaw\"></div>\n" +
         "                <div id=\"71\" class=\"negro fichaw\"></div><div id=\"72\" class=\"blanco\"></div><div id=\"73\" class=\"negro fichaw\"></div><div id=\"74\" class=\"blanco\"></div><div id=\"75\" class=\"negro fichaw\"></div><div id=\"76\" class=\"blanco\"></div><div id=\"77\" class=\"negro fichaw\"></div><div id=\"78\" class=\"blanco\"></div>\n" +
         "                <div id=\"61\" class=\"blanco\"></div><div id=\"62\" class=\"negro fichaw\"></div><div id=\"63\" class=\"blanco\"></div><div id=\"64\" class=\"negro fichaw\"></div><div id=\"65\" class=\"blanco\"></div><div id=\"66\" class=\"negro fichaw\"></div><div id=\"67\" class=\"blanco\"></div><div id=\"68\" class=\"negro fichaw\"></div>\n" +
@@ -621,4 +621,5 @@ window.addEventListener("DOMContentLoaded",function (e){
         "        <div id=\"chat\">\n" +
         "        </div>\n" +
         "    </section>"
+
 })
